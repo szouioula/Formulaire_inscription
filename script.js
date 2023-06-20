@@ -14,16 +14,16 @@ function geoFindMe() {
     mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
 
     // Initialisation de la carte
-    var map = L.map('map').setView([latitude, longitude], 13);
+    var map = map('map').setView([latitude, longitude], 13);
 
     // Ajout de la couche de tuiles (carte de base)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    map.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
       maxZoom: 18,
     }).addTo(map);
 
     // Ajout d'un marqueur sur le point spécifié
-    L.marker([latitude, longitude]).addTo(map);
+    map.marker([latitude, longitude]).addTo(map);
   }
 
   function error() {
